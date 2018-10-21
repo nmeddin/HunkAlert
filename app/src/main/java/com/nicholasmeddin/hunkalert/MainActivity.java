@@ -64,7 +64,17 @@ public class MainActivity extends AppCompatActivity {
 
         imgAvatar = (ImageView)findViewById(R.id.avatar);
 
+        final TextView logBut = (TextView) findViewById(R.id.bLogin);
         final TextView registerButton = (TextView) findViewById(R.id.bRegister);
+
+        logBut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent loginIntent = new Intent(MainActivity.this, LoginActivity.class);
+                MainActivity.this.startActivity(loginIntent);
+            }
+        });
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +94,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         Picasso.with(this).load(logo.toString()).into(imgAvatar);
+
+
 
         LoginButton loginButton = (LoginButton)findViewById(R.id.login_button);
         loginButton.setReadPermissions(Arrays.asList("public_profile", "email", "user_birthday"));

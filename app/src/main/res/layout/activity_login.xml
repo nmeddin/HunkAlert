@@ -14,7 +14,7 @@
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="Email"
-        android:inputType="textPassword"
+        android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etName" />
@@ -38,12 +38,12 @@
         android:text="Login" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/ivLogo"
         android:layout_width="113dp"
         android:layout_height="91dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="41dp"
+        android:layout_marginTop="52dp"
         app:srcCompat="@android:color/holo_red_light" />
 
     <TextView
