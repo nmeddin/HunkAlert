@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -63,9 +64,29 @@ public class MainActivity extends AppCompatActivity {
 
         imgAvatar = (ImageView)findViewById(R.id.avatar);
 
+        final TextView registerButton = (TextView) findViewById(R.id.bRegister);
+
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent registerIntent = new Intent(MainActivity.this, RegisterActivity.class);
+                MainActivity.this.startActivity(registerIntent);
+
+            }
+        });
+
+        URL logo = null;
+        try {
+            logo = new URL("https://i.imgur.com/JYO506u.png");
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+        Picasso.with(this).load(logo.toString()).into(imgAvatar);
+
         LoginButton loginButton = (LoginButton)findViewById(R.id.login_button);
         loginButton.setReadPermissions(Arrays.asList("public_profile", "email", "user_birthday"));
-
 
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
@@ -121,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
         try{
             URL profile_picture = new URL("https://graph.facebook.com/"+object.getString("id")+"/picture?width=250&height=250");
 
-            Picasso.with(this).load(profile_picture.toString()).into(imgAvatar);
+            //Picasso.with(this).load(profile_picture.toString()).into(imgAvatar);
 
             txtName.setText(object.getString("first_name"));
             txtBirthday.setText(object.getString("birthday"));
