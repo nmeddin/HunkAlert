@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
         try{
             URL profile_picture = new URL("https://graph.facebook.com/"+object.getString("id")+"/picture?width=250&height=250");
 
-            //Picasso.with(this).load(profile_picture.toString()).into(imgAvatar);
+            Picasso.with(this).load(profile_picture.toString()).into(imgAvatar);
 
             txtName.setText(object.getString("first_name"));
             txtBirthday.setText(object.getString("birthday"));
